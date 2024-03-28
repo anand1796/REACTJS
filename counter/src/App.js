@@ -17,7 +17,7 @@ function Counter() {
     <div>
       <h1>{count}</h1>
       <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => (count ? count : setCount(count - 1))}>
+      <button onClick={() => (count ? setCount(count - 1) : count)}>
         decrement
       </button>
     </div>
