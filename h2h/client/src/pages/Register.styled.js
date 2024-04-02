@@ -17,6 +17,7 @@ const RegisterContainer = styled.div`
     h1 {
       font-family: "merienda";
       color: white;
+      font-size: x-small;
     }
   }
   form {
@@ -43,11 +44,14 @@ const RegisterContainer = styled.div`
       border-radius: 10px;
       border: none;
       cursor: pointer;
+      color: white;
+      font-weight: 600;
     }
     span {
       border: 1px solid #fd1a56;
       padding: 10px 5px;
       border-radius: 10px;
+
       a {
         text-decoration: none;
         color: white;
