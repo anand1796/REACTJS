@@ -35,3 +35,5 @@ If you have any questions or feedback, feel free to reach out:
 
 - Email: [anand.sing.1796@gmail.com](mailto:anand.sing.1796@gmail.com)
 - GitHub: [anand1796](https://github.com/anand1796)
+- LinkedIn: [Anand Sing](https://www.linkedin.com/in/anand-sing/)
+- Instagram: [_an_and_1](https://www.instagram.com/_an_and_1/)
