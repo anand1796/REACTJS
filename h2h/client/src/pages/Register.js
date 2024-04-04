@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RegisterContainer from "./Register.styled";
+import FormContainer from "./Form.styled";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/h-2-h.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -27,18 +27,22 @@ const Register = () => {
         email,
         password,
       });
-      console.log(data.message);
+      console.log(data.status);
 
       if (data.status === false) {
-        toast.error(data.message, {
+        toast.error(data.msg, {
           theme: "dark",
         });
-      }
-
-      if (data.status === true) {
+      } else {
         localStorage.setItem("chat-user", JSON.stringify(data.user));
+        toast.success("Registered Successfully, redirecting to Login page", {
+          theme: "dark",
+          autoClose: 4000,
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 4000);
       }
-      navigate("/");
     }
   };
 
@@ -66,10 +70,6 @@ const Register = () => {
       toast.error("Email is required", toastOptions);
       return false;
     }
-    toast.success("Registered Successfully...", {
-      theme: "dark",
-      autoClose: 4000,
-    });
     return true;
   }
 
@@ -81,7 +81,7 @@ const Register = () => {
 
   return (
     <>
-      <RegisterContainer>
+      <FormContainer>
         <form
           onSubmit={(event) => {
             handleSubmit(event);
@@ -117,10 +117,12 @@ const Register = () => {
           />
           <button type="submit">Register</button>
           <span>
-            <Link to="/login">Already have an account? Login</Link>
+            <Link to="/login">
+              Already have an account? <span>Login</span>
+            </Link>
           </span>
         </form>
-      </RegisterContainer>
+      </FormContainer>
       <ToastContainer />
     </>
   );

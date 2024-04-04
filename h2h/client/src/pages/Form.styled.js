@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RegisterContainer = styled.div`
+const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ const RegisterContainer = styled.div`
     h1 {
       font-family: "merienda";
       color: white;
-      font-size: x-small;
+      font-size: 20px;
     }
   }
   form {
@@ -51,13 +51,16 @@ const RegisterContainer = styled.div`
       border: 1px solid #fd1a56;
       padding: 10px 5px;
       border-radius: 10px;
-
       a {
         text-decoration: none;
         color: white;
+        span {
+          color: #fd1a56;
+          border: none;
+        }
       }
     }
   }
 `;
 
-export default RegisterContainer;
+export default FormContainer;

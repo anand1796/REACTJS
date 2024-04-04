@@ -4,6 +4,7 @@ const User = require("../model/userModel");
 
 module.exports.register = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { username, email, password } = req.body;
 
     const checkUser = await User.findOne({ username });
@@ -23,6 +24,26 @@ module.exports.register = async (req, res, next) => {
       password: hashPasswd,
     });
     delete user.password;
+    return res.json({ status: true, user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.login = async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const { username, password } = req.body;
+
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.json({ msg: "Incorrect Username", status: false });
+    }
+
+    const validPasswd = await bcrypt.compare(password, user.password);
+    if (!validPasswd) {
+      return res.json({ msg: "Incorrect Password", status: false });
+    }
     return res.json({ status: true, user });
   } catch (error) {
     next(error);
